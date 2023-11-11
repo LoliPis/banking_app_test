@@ -35,7 +35,11 @@ public interface TransactionMapper {
 
 
   default Long map(Account account) {
-    return account != null ? account.getAccountNumber() : null;
+    if (account != null) {
+      return account.getAccountNumber();
+    } else {
+      return null;
+    }
   }
 
   List<TransactionDTO> toTransactionDTOList(List<Transaction> transactions);
