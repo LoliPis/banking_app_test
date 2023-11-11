@@ -22,10 +22,10 @@ public class Transaction {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "account_id")
+  @JoinColumn(name = "account_number")
   private Account account;
 
-  @Column(name = "operation_type",nullable = false)
+  @Column(name = "operation_type", nullable = false)
   @Enumerated(value = EnumType.STRING)
   private OperationType operationType;
 
@@ -33,6 +33,16 @@ public class Transaction {
   private BigDecimal amount;
 
   @CreationTimestamp(source = SourceType.DB)
-  @Column(name = "timestamp",nullable = false)
-  private LocalDateTime timestamp;
+  @Column(name = "created_date", nullable = false)
+  private LocalDateTime createdDate;
+
+  private Transaction(Account account, OperationType operationType, BigDecimal amount) {
+    this.account = account;
+    this.operationType = operationType;
+    this.amount = amount;
+  }
+
+  public static Transaction newBalanceAfterOperation(Account account, BigDecimal amount, OperationType operationType) {
+    return new Transaction(account, operationType, amount);
+  }
 }
