@@ -24,7 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Objects;
 
 @Slf4j
 @Service
@@ -84,7 +83,7 @@ public class AccountServiceImpl implements AccountService {
 
   @Override
   public void transfer(TransferRequest transferRequest) {
-      if (Objects.equals(transferRequest.getToAccountNumber(), transferRequest.getFromAccountNumber())) {
+      if (transferRequest.getToAccountNumber().equals(transferRequest.getFromAccountNumber())) {
         throw new InvalidTransferOperationException("Invalid transfer");
       }
       withdraw(RequestMapper.INSTANCE.fromTransferToWithdraw(transferRequest));
