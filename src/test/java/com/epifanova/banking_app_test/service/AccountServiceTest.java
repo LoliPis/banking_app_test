@@ -70,7 +70,7 @@ public class AccountServiceTest {
   }
 
   @Test
- public void depositTest() {
+  public void depositTest() {
     DepositRequest depositRequest = new DepositRequest(1L, BigDecimal.TEN);
     DepositRequest incorrectAccountNumberDepositRequest = new DepositRequest(2L, BigDecimal.TEN);
     Account account = new Account();
@@ -93,8 +93,8 @@ public class AccountServiceTest {
 
   @Test
   public void withdrawTest() {
-    WithdrawRequest withdrawRequest = new WithdrawRequest("encodedPinCode",1L, BigDecimal.TEN);
-    WithdrawRequest incorrectAccountNumberWithdrawRequest = new WithdrawRequest("encodedPinCode",2L, BigDecimal.TEN);
+    WithdrawRequest withdrawRequest = new WithdrawRequest("encodedPinCode", 1L, BigDecimal.TEN);
+    WithdrawRequest incorrectAccountNumberWithdrawRequest = new WithdrawRequest("encodedPinCode", 2L, BigDecimal.TEN);
     Account accountWithPositiveBalance = new Account();
     accountWithPositiveBalance.setAccountNumber(1L);
     accountWithPositiveBalance.setBalance(BigDecimal.TEN);
@@ -145,7 +145,7 @@ public class AccountServiceTest {
 
   @Test
   public void notEnoughMoneyExceptionTest() {
-    WithdrawRequest withdrawRequest = new WithdrawRequest("encodedPinCode",1L, BigDecimal.TEN);
+    WithdrawRequest withdrawRequest = new WithdrawRequest("encodedPinCode", 1L, BigDecimal.TEN);
     Account accountWithNegativeBalance = new Account();
     accountWithNegativeBalance.setAccountNumber(1L);
     accountWithNegativeBalance.setBalance(BigDecimal.ZERO);

@@ -32,21 +32,21 @@ public class TransactionServiceTest {
   private TransactionServiceImpl transactionService;
 
   @Test
-  public void withdrawTransactionTest(){
+  public void withdrawTransactionTest() {
     Account account = new Account();
     BigDecimal amount = new BigDecimal("100.00");
 
     transactionService.withdrawTransaction(account, amount);
-    verify(transactionRepository,times(1)).save(any(Transaction.class));
+    verify(transactionRepository, times(1)).save(any(Transaction.class));
   }
 
   @Test
-  public void depositTransactionTest(){
+  public void depositTransactionTest() {
     Account account = new Account();
     BigDecimal amount = new BigDecimal("100.00");
 
     transactionService.depositTransaction(account, amount);
-    verify(transactionRepository,times(1)).save(any(Transaction.class));
+    verify(transactionRepository, times(1)).save(any(Transaction.class));
   }
 
   @Test
