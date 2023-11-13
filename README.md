@@ -34,18 +34,17 @@ them. Interaction with API will be using HTTP requests.
 ## Technology stack
 
 - Java 17
-- H2 database for in-memory storing
-- Spring boot for using starter dependencies
-- Spring Web for REST implementation
-- Spring JPA, Liquibase, Hibernate for database interaction
-- Spring Validation for DTO checking
-- Spring Security Crytpto for password encoding
-- Mockito, JUnit for unit testing
-- JavaFaker for preparing test data
-- Springdoc OpenApi, Swagger for API description
-- Lombok, Mapstruct for code generation
-- Maven as build tool
-- Docker for building image and container
+- H2 database
+- Spring boot
+- Spring Web
+- Spring JPA, Liquibase, Hibernate
+- Spring Validation
+- Spring Security Crytpto
+- Mockito, JUnit
+- Springdoc OpenApi, Swagger
+- Lombok, Mapstruct
+- Maven
+- Docker
 
 ## DB schema:
 

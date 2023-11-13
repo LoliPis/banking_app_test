@@ -7,14 +7,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class SecurityService{
+public class SecurityService {
   private PasswordEncoder passwordEncoder;
 
   public void verifyPinCode(String pinCode, String correctPinCode) {
-    if (!passwordEncoder.matches(pinCode,correctPinCode)){
+    if (!passwordEncoder.matches(pinCode, correctPinCode)) {
       throw new WrongPinCodeException("Invalid pinCode! The operation cannot be performed.");
     }
   }
+
   public String encodePinCode(String pinCode) {
     return passwordEncoder.encode(pinCode);
   }

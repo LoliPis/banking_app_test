@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper
 public interface AccountMapper {
   AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
+
   Account toAccount(NewAccountDTO newAccountDTO);
 
   AccountDTO toAccountDTOFromAccount(Account account);
@@ -20,10 +21,11 @@ public interface AccountMapper {
   List<AccountDTO> toAccountDTOList(List<Account> accounts);
 
   default AccountsDTO toAccountsDTO(List<Account> accounts) {
-    AccountsDTO  accountsDTO = new AccountsDTO();
+    AccountsDTO accountsDTO = new AccountsDTO();
     accountsDTO.setResult(toAccountDTOList(accounts));
-    accountsDTO.setCount((long)accounts.size());
+    accountsDTO.setCount((long) accounts.size());
     return accountsDTO;
   }
+
   AccountBalanceAfterOperationDTO balanceAfterOperationFromAccount(Account account);
 }

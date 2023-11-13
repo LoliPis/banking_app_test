@@ -27,17 +27,18 @@ public class CommonExceptionHandler {
     return configureResponse(HttpStatus.BAD_REQUEST, ex);
   }
 
-  @ExceptionHandler(InvalidTransferOperationException .class)
+  @ExceptionHandler(InvalidTransferOperationException.class)
   public ResponseEntity<RestError> handleInvalidTransferOperationException(
       InvalidTransferOperationException ex) {
     return configureResponse(HttpStatus.BAD_REQUEST, ex);
   }
+
   private ResponseEntity<RestError> configureResponse(
       HttpStatus httpStatus,
       Throwable ex) {
-      RestError restError = new RestError(httpStatus.toString(), ex.getMessage());
-      return ResponseEntity
-          .status(httpStatus)
-          .body(restError);
+    RestError restError = new RestError(httpStatus.toString(), ex.getMessage());
+    return ResponseEntity
+        .status(httpStatus)
+        .body(restError);
   }
 }
