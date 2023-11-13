@@ -45,7 +45,7 @@ public class AccountServiceImpl implements AccountService {
   }
 
   @Override
-  public AccountsDTO getAllAccounts(String recipientName) {
+  public AccountsDTO getAllAccountsByRecipientName(String recipientName) {
     List<Account> accounts = accountRepository.findAllByRecipientName(recipientName);
     return AccountMapper.INSTANCE.toAccountsDTO(accounts);
   }

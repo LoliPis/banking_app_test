@@ -74,7 +74,7 @@ public class AccountController {
       produces = MediaType.APPLICATION_JSON_VALUE,
       method = RequestMethod.POST)
   public AccountsDTO getAllAccounts(@Valid @PathVariable String recipientName){
-      return accountService.getAllAccounts(recipientName);
+      return accountService.getAllAccountsByRecipientName(recipientName);
   }
 
   @Operation(summary = "Deposit to account by account number")

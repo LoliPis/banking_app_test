@@ -10,9 +10,9 @@ import com.epifanova.banking_app_test.dto.request.WithdrawRequest;
 
 public interface AccountService {
 
-  AccountsDTO getAllAccounts(String recipientName);
-
   AccountDTO createAccount(NewAccountDTO newAccountDTO);
+
+  AccountsDTO getAllAccountsByRecipientName(String recipientName);
 
   AccountBalanceAfterOperationDTO deposit(DepositRequest depositRequest);
 
