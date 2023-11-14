@@ -72,7 +72,7 @@ public class AccountController {
   })
   @RequestMapping(value = "/{recipientName}",
       produces = MediaType.APPLICATION_JSON_VALUE,
-      method = RequestMethod.POST)
+      method = RequestMethod.GET)
   public AccountsDTO getAllAccounts(@Valid @PathVariable String recipientName){
       return accountService.getAllAccountsByRecipientName(recipientName);
   }
